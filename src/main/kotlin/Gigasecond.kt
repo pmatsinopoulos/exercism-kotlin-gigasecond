@@ -1,8 +1,12 @@
+import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.LocalTime
 
-class Gigasecond {
+class Gigasecond(localDateTime: LocalDateTime) {
+    var date: LocalDateTime = localDateTime
+        get() {
+            return field.plusSeconds(1_000_000_000)
+        }
 
-    // TODO: Implement proper constructor
-
-    val date: LocalDateTime = TODO("Implement this getter to complete the task")
+    constructor(localDate: LocalDate) : this(LocalDateTime.of(localDate.year, localDate.month, localDate.dayOfMonth, 0, 0, 0))
 }
